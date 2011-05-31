@@ -1,0 +1,10 @@
+sDoFRBFM = pointPatchFields/derived/sixDoFRigidBodyForcedMotion
+
+$(sDoFRBFM)/sixDoFRigidBodyForcedMotion.C
+$(sDoFRBFM)/sixDoFRigidBodyForcedMotionIO.C
+$(sDoFRBFM)/sixDoFRigidBodyForcedMotionState.C
+$(sDoFRBFM)/sixDoFRigidBodyForcedMotionStateIO.C
+
+pointPatchFields/derived/sixDoFRigidBodyForcedDisplacement/sixDoFRigidBodyForcedDisplacementPointPatchVectorField.C
+
+LIB = $(FOAM_LIBBIN)/libforcedMotion

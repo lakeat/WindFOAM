@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh   solidBodyMotionFvMesh;
+
+solidBodyMotionFvMeshCoeffs
+{
+    solidBodyMotionFunction SDA;
+    SDACoeffs
+    {
+        CofG            ( 0 0 0 );
+        lamda           50;
+        rollAmax        0.2;
+        rollAmin        0.1;
+        heaveA          4;
+        swayA           2.4;
+        Q               2;
+        Tp              14;
+        Tpn             12;
+        dTi             0.06;
+        dTp             -0.001;
+    }
+}
+
+// ************************************************************************* //

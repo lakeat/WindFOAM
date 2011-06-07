@@ -71,9 +71,8 @@ Foam::tmp<Foam::Field<Type> > Foam::RBFInterpolation::interpolate
     //    alpha's and beta's
     // 3) Return displacements using tresult()
 
-    //const label nControlPoints = ctrlField.size();
     const label nControlPoints = controlPoints_.size();
-    const scalarSquareMatrix& mat = B();
+    const scalarSquareMatrix& mat = this->B();
 
     // Determine interpolation coefficients
     Field<Type> alpha(nControlPoints, pTraits<Type>::zero);
@@ -106,57 +105,52 @@ Foam::tmp<Foam::Field<Type> > Foam::RBFInterpolation::interpolate
     // Evaluation
     scalar t;
 
+    // Algorithmic improvement, Matteo Lombardi.  21/Mar/2011
+
     forAll (allPoints_, flPoint)
     {
-        forAll (controlPoints_, i)
-        {
-            scalarField weights =
-                RBF_->weights(controlPoints_, allPoints_[flPoint]);
-
-            result[flPoint] += weights[i]*alpha[i];
-        }
-
-        if (polynomials_)
-        {
-            result[flPoint] +=
-                beta[0]
-              + beta[1]*allPoints_[flPoint].x()
-              + beta[2]*allPoints_[flPoint].y()
-              + beta[3]*allPoints_[flPoint].z();
-        }
-
         // Cut-off function to justify neglecting outer boundary points
-        //t = (Foam::mag(allPoints_[flPoint] - focalPoint_) - innerRadius_)/
-        //    (outerRadius_ - innerRadius_);
-        t = (Foam::sqrt
-                (
-                    (allPoints_[flPoint].x() - focalPoint_.x())
-                   *(allPoints_[flPoint].x() - focalPoint_.x())
-                   +(allPoints_[flPoint].y() - focalPoint_.y())
-                   *(allPoints_[flPoint].y() - focalPoint_.y())
-                ) - innerRadius_)/
+        t = (Foam::mag(allPoints_[flPoint] - focalPoint_) - innerRadius_)/
             (outerRadius_ - innerRadius_);
-        //Info << "focalPoint_.x() = " << focalPoint_.x() << nl
-        //     << "focalPoint_.y() = " << focalPoint_.y() << nl
-        //     << "focalPoint_.z() = " << focalPoint_.z() << nl
-        //     << endl;
 
-        scalar w;
-
-        if (t <= 0)
+        if (t >= 1)
         {
-            w = 1.0;
-        }
-        else if(t >= 1)
-        {
-            w = 0.0;
+            // Increment is zero: w = 0
+            result[flPoint] = 0*result[flPoint];
         }
         else
         {
-            w = 1 - sqr(t)*(3-2*t);
+            // Full calculation of weights
+            scalarField weights =
+                RBF_->weights(controlPoints_, allPoints_[flPoint]);
+
+            forAll (controlPoints_, i)
+            {
+                result[flPoint] += weights[i]*alpha[i];
+            }
+
+            if (polynomials_)
+            {
+                result[flPoint] +=
+                    beta[0]
+                  + beta[1]*allPoints_[flPoint].x()
+                  + beta[2]*allPoints_[flPoint].y()
+                  + beta[3]*allPoints_[flPoint].z();
+            }
+
+            scalar w;
+
+            if (t <= 0)
+            {
+                w = 1.0;
+            }
+            else
+            {
+                w = 1 - sqr(t)*(3-2*t);
+            }
+
+            result[flPoint] = w*result[flPoint];
         }
-        
-        result[flPoint] = w*result[flPoint];
     }
 
     return tresult;

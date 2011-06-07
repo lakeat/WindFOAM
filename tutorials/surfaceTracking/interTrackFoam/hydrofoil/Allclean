@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+cleanFaMesh ()
+{
+    rm -rf ./constant/faMesh/faceLabels* \
+           ./constant/faMesh/faBoundary* \
+           > /dev/null 2>&1
+}
+
+cleanTimeDirectories
+cleanFaMesh

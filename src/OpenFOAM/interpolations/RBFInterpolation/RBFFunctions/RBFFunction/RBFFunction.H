@@ -45,7 +45,6 @@ SourceFiles
 #include "tmp.H"
 #include "autoPtr.H"
 #include "primitiveFields.H"
-#include "pointFieldsFwd.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -102,6 +101,9 @@ public:
         //- Construct null
         RBFFunction()
         {}
+
+        //- Create and return a clone
+        virtual autoPtr<RBFFunction> clone() const = 0;
 
 
     // Destructor

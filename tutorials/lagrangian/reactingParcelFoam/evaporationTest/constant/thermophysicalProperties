@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType      hsPsiMixtureThermo<reactingMixture<gasThermoPhysics>>;
+
+chemistryReader foamChemistryReader;
+
+foamChemistryFile "$FOAM_CASE/chemkin/foam.inp";
+
+foamChemistryThermoFile "$FOAM_CASE/chemkin/foam.dat";
+
+liquidComponents
+(
+    H2O
+);
+
+solidComponents
+();
+
+inertSpecie     N2;
+
+H2O             H2O defaultCoeffs;
+
+// ************************************************************************* //

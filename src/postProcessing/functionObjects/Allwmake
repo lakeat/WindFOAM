@@ -8,6 +8,5 @@ wmake libso forces
 wmake libso IO
 wmake libso utilities
 wmake libso systemCall
-wmake libso RBFMotion
 
 # ----------------------------------------------------------------- end-of-file

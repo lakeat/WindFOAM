@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
         {
             const fvPatch& currPatch = patches[patchi];
 
-            if (isA<wallFvPatch>(currPatch))
+            if (currPatch.isWall())
             {
                 yPlus.boundaryField()[patchi] =
                     d[patchi]
@@ -123,8 +123,6 @@ int main(int argc, char *argv[])
 
                 Info<< "Patch " << patchi
                     << " named " << currPatch.name()
-                    << " y  : min: " << min(d) << " max: " << max(d)
-                    << " average: " << average(d) << nl
                     << " y+ : min: " << min(Yp) << " max: " << max(Yp)
                     << " average: " << average(Yp) << nl << endl;
             }

@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+    hhuMixtureThermo<homogeneousMixture<sutherlandTransport<specieThermo<janafThermo<perfectGas>>>>>;
+
+stoichiometricAirFuelMassRatio
+    stoichiometricAirFuelMassRatio [0 0 0 0 0 0 0] 15.675;
+
+// phi = 0.57
+// ft = 0.0352993
+// Tad = 1650.1
+
+reactants reactants     1       29.2068
+    100 5000    1000
+    3.20495 0.00165359 -5.55661e-07 8.62503e-11 -4.93973e-15 -1347.25 4.81241
+    3.52181 -9.21936e-05 1.77427e-06 -6.2049e-10 -1.99209e-13 -1352.32 3.48856
+    1.67212e-06 170.672;
+
+products products       1       28.5396
+    100 5000    1000
+    3.10383 0.00156927 -5.22523e-07 8.06527e-11 -4.60363e-15 -6892.54 5.21744
+    3.53318 7.81943e-05 5.77097e-07 6.68595e-10 -6.30433e-13 -6964.71 3.15336
+    1.67212e-06 170.672;
+
+// ************************************************************************* //

@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      viscoelasticProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*
+5.0 wt.% solution of polyisobutylene in tetradecane
+*/
+
+rheology
+{
+                type Leonov;
+                rho              rho [1 -3 0 0 0 0 0] 803.87097;
+                etaS             etaS [1 -1 -1 0 0 0 0] 0.002;
+                etaP             etaP [1 -1 -1 0 0 0 0] 1.422;
+                lambda           lambda [0 0 1 0 0 0 0] 0.03;
+
+}
+
+// ************************************************************************* //

@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+set -x
+
+wmakeLnInclude decompositionMethods
+
+wmake libso scotchDecomp
+wmake libso metisDecomp
+wmake libso parMetisDecomp
+
+wmake libso decompositionMethods
+
+# ----------------------------------------------------------------- end-of-file

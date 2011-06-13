@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       dictionary;
+    location    "constant";
+    object      chemistryProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+psiChemistryModel ODEChemistryModel<gasThermoPhysics>;
+
+chemistry       on;
+
+chemistrySolver ode;
+
+initialChemicalTimeStep 1e-07;
+
+sequentialCoeffs
+{
+    cTauChem        0.001;
+}
+
+EulerImplicitCoeffs
+{
+    cTauChem        0.05;
+    equilibriumRateLimiter off;
+}
+
+odeCoeffs
+{
+    ODESolver       SIBS;
+    eps             0.05;
+    scale           1;
+}
+
+// ************************************************************************* //

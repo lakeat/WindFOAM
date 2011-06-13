@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    pcorr
+    {
+        solver           BiCGStab;
+        preconditioner   DILU;
+
+        minIter          0;
+        maxIter          1000;
+        tolerance        1e-02;
+        relTol           0;
+    };
+
+    p
+    {
+        solver           CG;
+        preconditioner   Cholesky;
+
+        minIter          0;
+        maxIter          1000;
+        tolerance        1e-07;
+        relTol           0.0;
+    };
+
+    pFinal
+    {
+        solver           CG;
+        preconditioner   Cholesky;
+
+        minIter          0;
+        maxIter          1000;
+        tolerance        1e-07;
+        relTol           0;
+    };
+
+    U
+    {
+        solver            BiCGStab;
+        preconditioner    DILU;
+
+        minIter          0;
+        maxIter          1000;
+        tolerance        1e-07;
+        relTol           0;
+    };
+}
+
+PISO
+{
+    nCorrectors     4;
+    nNonOrthogonalCorrectors 1;
+    pRefCell        0;
+    pRefValue       0;
+}
+
+// ************************************************************************* //

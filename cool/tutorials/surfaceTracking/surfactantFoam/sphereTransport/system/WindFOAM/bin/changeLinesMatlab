@@ -1,0 +1,7 @@
+#!/bin/sh
+
+unset DISPLAY
+matlab > log.changeLinesMatlab 2>&1 << EOF
+changeLines
+exit
+EOF

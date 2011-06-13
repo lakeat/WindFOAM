@@ -1,0 +1,30 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      cellSetDict.2;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+name            c0;
+
+action          new;
+
+topoSetSources
+(
+    boxToCell
+    {
+        box ( 0.0045 -0.00075 -1 ) ( 0.0095 0.00075 1 );
+    }
+);
+
+// ************************************************************************* //

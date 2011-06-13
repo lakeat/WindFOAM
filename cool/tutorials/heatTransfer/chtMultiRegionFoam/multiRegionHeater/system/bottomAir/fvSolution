@@ -1,0 +1,106 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    rho
+    {
+        solver           PCG;
+        preconditioner   DIC;
+        tolerance        1e-6;
+        relTol           0;
+    };
+    p
+    {
+        solver           GAMG;
+        tolerance        1e-6;
+        relTol           0.1;
+
+        smoother         GaussSeidel;
+
+        cacheAgglomeration true;
+        nCellsInCoarsestLevel 10;
+        agglomerator     faceAreaPair;
+        mergeLevels      1;
+    };
+    pFinal
+    {
+        solver           GAMG;
+        tolerance        1e-6;
+        relTol           0;
+
+        smoother         GaussSeidel;
+
+        cacheAgglomeration true;
+        nCellsInCoarsestLevel 10;
+        agglomerator     faceAreaPair;
+        mergeLevels      1;
+    };
+    U
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-08;
+        relTol           0;
+    };
+    h
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-06;
+        relTol           0;
+    };
+    hFinal
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-07;
+        relTol           0;
+    }
+    k
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-06;
+        relTol           0;
+    };
+    epsilon
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-06;
+        relTol           0;
+    };
+    R
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-06;
+        relTol           0;
+    };
+}
+
+PIMPLE
+{
+    momentumPredictor        off;
+    nOuterCorrectors         1;
+    nCorrectors              2;
+    nNonOrthogonalCorrectors 1;
+    pRefCell                 0;
+    pRefValue                0;
+}
+
+// ************************************************************************* //

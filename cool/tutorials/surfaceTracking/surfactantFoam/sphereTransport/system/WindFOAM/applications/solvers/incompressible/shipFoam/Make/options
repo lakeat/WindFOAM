@@ -1,0 +1,28 @@
+EXE_INC = \
+    -I$(FOAM_APP)/solvers/multiphase/interFoam \
+    -I$(LIB_SRC)/transportModels \
+    -I$(LIB_SRC)/transportModels/incompressible/lnInclude \
+    -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
+    -I$(LIB_SRC)/turbulenceModels/incompressible/turbulenceModel \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/dynamicMesh/dynamicMesh/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/dynamicMesh/dynamicFvMesh/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude \
+    -I$(LIB_SRC)/ODE/lnInclude \
+-IrotationMatrix \
+-ImotionODE \
+-IbodyMotion \
+-IwriteMotionFile
+
+EXE_LIBS = \
+    -linterfaceProperties \
+    -lincompressibleTransportModels \
+    -lincompressibleRASModels \
+    -lincompressibleLESModels \
+    -lfiniteVolume \
+    -ldynamicMesh \
+    -lmeshTools \
+    -ldynamicFvMesh \
+    -lsampling \
+    -lODE

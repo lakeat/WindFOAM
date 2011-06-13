@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+startFrom                  latestTime;
+
+startTime                  0;
+
+stopAt                     endTime;
+
+endTime                    2e-3;
+
+deltaT                     1e-8;
+
+writeControl               adjustableRunTime;
+
+writeInterval              1e-4;
+
+purgeWrite                 0;
+
+writeFormat                ascii;
+
+writePrecision             6;
+
+writeCompression           uncompressed;
+
+timeFormat                 general;
+
+runTimeModifiable          yes;
+
+adjustTimeStep             on;
+
+maxCo                      0.5;
+
+maxAcousticCo              50.0;
+
+// ************************************************************************* //

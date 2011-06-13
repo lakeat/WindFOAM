@@ -1,0 +1,33 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dictionaryReplacement
+{
+    boundary
+    {
+        inlet
+        {
+            type            directMappedPatch;
+            offset          ( 0.0495 0 0 );
+            sampleRegion    region0;
+            sampleMode      nearestCell;
+            samplePatch     none;
+        }
+    }
+}
+
+// ************************************************************************* //

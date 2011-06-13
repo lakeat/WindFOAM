@@ -1,3 +1,0 @@
-calcLevelSet.C
-
-EXE = $(FOAM_APPBIN)/calcLevelSet

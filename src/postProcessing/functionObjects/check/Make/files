@@ -1,4 +1,0 @@
-ggiCheck/ggiCheckFunctionObject.C
-meshCheck/meshCheckFunctionObject.C
-
-LIB = $(FOAM_LIBBIN)/libcheckFunctionObjects

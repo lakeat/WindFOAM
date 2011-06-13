@@ -1,7 +1,0 @@
-#!/bin/sh
-set -x
-
-wmake libso phaseModel
-wmake libso interfacialModels
-wmake libso kineticTheoryModels
-wmake

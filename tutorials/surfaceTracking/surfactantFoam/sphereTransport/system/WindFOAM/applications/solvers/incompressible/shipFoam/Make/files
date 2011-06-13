@@ -1,8 +1,0 @@
-rotationMatrix/rotationMatrix.C
-motionODE/motionODE.C
-bodyMotion/bodyMotion.C
-writeMotionFile/writeMotionFile.C
-
-shipFoam.C
-
-EXE = $(FOAM_USER_APPBIN)/shipFoam

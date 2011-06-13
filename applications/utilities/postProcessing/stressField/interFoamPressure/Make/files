@@ -1,3 +1,0 @@
-interFoamPressure.C
-
-EXE = $(FOAM_APPBIN)/interFoamPressure

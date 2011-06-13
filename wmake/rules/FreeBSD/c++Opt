@@ -1,2 +1,0 @@
-c++DBUG     = 
-c++OPT      = $(CXXFLAGS) -ffast-math

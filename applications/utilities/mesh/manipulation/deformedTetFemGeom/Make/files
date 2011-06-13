@@ -1,3 +1,0 @@
-deformedTetFemGeom.C
-
-EXE = $(FOAM_APPBIN)/deformedTetFemGeom

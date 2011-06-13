@@ -1,3 +1,0 @@
-solidStress.C
-
-EXE = $(FOAM_APPBIN)/solidStress

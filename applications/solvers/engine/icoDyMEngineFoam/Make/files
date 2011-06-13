@@ -1,3 +1,0 @@
-icoDyMEngineFoam.C
-
-EXE = $(FOAM_APPBIN)/icoDyMEngineFoam

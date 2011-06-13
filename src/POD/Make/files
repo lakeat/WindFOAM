@@ -1,7 +1,0 @@
-PODEigenBase/PODEigenBase.C
-PODOrthoNormalBase/scalarPODOrthoNormalBase.C
-PODODE/PODODE.C
-
-scalarTransportPOD/scalarTransportPOD.C
-
-LIB = $(FOAM_LIBBIN)/libPOD

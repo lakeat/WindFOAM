@@ -1,3 +1,0 @@
-testFad.C
-
-EXE = $(FOAM_APPBIN)/testFad

@@ -1,3 +1,0 @@
-PODSolver.C
-
-EXE = $(FOAM_APPBIN)/PODSolver

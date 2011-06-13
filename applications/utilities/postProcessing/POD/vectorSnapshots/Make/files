@@ -1,3 +1,0 @@
-vectorSnapshots.C
-
-EXE = $(FOAM_APPBIN)/vectorSnapshots

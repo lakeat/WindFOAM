@@ -1,3 +1,0 @@
-cellZoneToCellTableId.C
-
-EXE = $(FOAM_APPBIN)/cellZoneToCellTableId

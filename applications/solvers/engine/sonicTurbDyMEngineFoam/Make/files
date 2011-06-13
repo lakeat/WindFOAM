@@ -1,3 +1,0 @@
-sonicTurbDyMEngineFoam.C
-
-EXE = $(FOAM_APPBIN)/sonicTurbDyMEngineFoam

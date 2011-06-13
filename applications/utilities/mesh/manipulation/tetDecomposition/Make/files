@@ -1,3 +1,0 @@
-tetDecomposition.C
-
-EXE = $(FOAM_APPBIN)/tetDecomposition

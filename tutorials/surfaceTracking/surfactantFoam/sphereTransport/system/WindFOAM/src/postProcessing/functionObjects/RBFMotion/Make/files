@@ -1,3 +1,0 @@
-RBFMotionFunctionObject.C
-
-LIB = $(FOAM_LIBBIN)/libRBFMotion

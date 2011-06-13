@@ -1,3 +1,0 @@
-scalarSnapshots.C
-
-EXE = $(FOAM_APPBIN)/scalarSnapshots

@@ -1,4 +1,0 @@
-testFadField.C
-fadOneFields.C
-
-EXE = $(FOAM_APPBIN)/testFadField

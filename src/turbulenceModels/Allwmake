@@ -1,9 +1,0 @@
-#!/bin/sh
-cd ${0%/*} || exit 1    # run from this directory
-set -x
-
-LES/Allwmake
-incompressible/Allwmake
-compressible/Allwmake
-
-# ----------------------------------------------------------------- end-of-file

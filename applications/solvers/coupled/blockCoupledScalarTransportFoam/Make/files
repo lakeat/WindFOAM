@@ -1,3 +1,0 @@
-blockCoupledScalarTransportFoam.C
-
-EXE = $(FOAM_APPBIN)/blockCoupledScalarTransportFoam

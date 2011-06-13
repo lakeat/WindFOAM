@@ -1,3 +1,0 @@
-cf.C
-
-EXE = $(FOAM_APPBIN)/cf

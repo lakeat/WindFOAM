@@ -1,3 +1,0 @@
-conjugateHeatFoam.C  
-
-EXE = $(FOAM_APPBIN)/conjugateHeatFoam

@@ -54,7 +54,7 @@ Updates
     -Should it be forces=fTmp, or forces+=fTmp???
 
 Authorship
-    Daniel Wei
+    Daniel Wei, NatHaz Lab.  All rights reserved.
     06/07/2011
 
 \*---------------------------------------------------------------------------*/
@@ -84,9 +84,27 @@ int main(int argc, char *argv[])
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+    fileName bodyMotionDir;
+    if (Pstream::master())
+    {
+        if (Pstream::parRun())
+        {
+            bodyMotionDir = runTime.path()/"..";
+        }
+        else
+        {
+            bodyMotionDir = runTime.path();
+        }
+    }
+    OFstream of(bodyMotionDir/"bodyMotion.dat");
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
     Info<< "\nStarting time loop\n" << endl;
 
-    while (runTime.run())
+//    while (runTime.run())
+//    {
+    for (runTime++; !runTime.end(); runTime++)
     {
 #       include "readControls.H"
 #       include "CourantNo.H"
@@ -118,6 +136,10 @@ int main(int argc, char *argv[])
 #       include "setPressure.H"
 #       include "setMotion.H"
 #       include "solveFluid.H"
+
+        of << runTime.value() << tab
+           << structure()[0].X().value().y() << tab
+           << structure()[0].T().value().z() << endl;
 
         runTime.write();
 

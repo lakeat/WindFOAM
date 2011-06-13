@@ -13,15 +13,6 @@
 
     sixDOFMSDbodies structure(runTime);
 
-
-
-//    // Annoying warnings removal
-//    transonic=0;
-//    nOuterCorr=0;
-//    nCorr=0;
-//    nNonOrthCorr=0;
-//    transonic=0;
-//    momentumPredictor=0;
-//    maxCo=0;
-//    maxDeltaT=0;
+    //-Note, in the following code, since we just have one moving body here,
+    // so structure()[0].memberFunction is used to call "sixDOFMSDqODE" class.
 

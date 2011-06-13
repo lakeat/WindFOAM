@@ -57,7 +57,6 @@
         zeroGradientFvPatchScalarField::typeName
     );
 
-// ****************************************************************************
     Info<< "Reading transportProperties\n" << endl;
 
     IOdictionary transportProperties
@@ -77,14 +76,9 @@
         transportProperties.lookup("rho")
     );
 
+// ****************************************************************************
+    //-Some variables are declared here, so to make them glable variables
     vector totalPressureForce(0,0,0);
     vector totForce(0.0,0.0,0.0);
     vector totMoment(0.0,0.0,0.0);
-
-    // Tuple which holds the pressure (.first()) and viscous (.second) forces
-    typedef Tuple2<vector, vector> pressureViscous;
-
-    // Tuple which holds the forces (.first()) and moment (.second)
-    // pressure/viscous forces Tuples.
-    typedef Tuple2<pressureViscous, pressureViscous> forcesMoments;
 
